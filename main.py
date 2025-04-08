@@ -7,9 +7,9 @@ import pandas as pd
 
 from analyze_topics import run_analysis
 from cli import parse_args
-from database import get_top_posts, save_to_sqlite
+from database import get_top_posts, save_to_sqlite, get_post_by_id
 from fetch_reddit_posts import initialize_reddit, scrape_reddit
-from utils import print_summary
+from utils import print_summary, print_post_from_id
 
 # def save_to_csv(results, filename="output/reddit_app_ideas.csv"):
 #     if not results:
