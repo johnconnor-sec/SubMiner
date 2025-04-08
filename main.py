@@ -1,31 +1,18 @@
 import asyncio
 
-# import os
-# import sys
+import pyfiglet
 
 from analyze_comments import summarize_comments
-import pandas as pd
-
 from analyze_topics import run_analysis
 from cli import parse_args
-from database import get_top_posts, save_to_sqlite, get_post_by_id
+from database import get_post_by_id, get_top_posts, save_to_sqlite
 from fetch_reddit_posts import initialize_reddit, scrape_reddit
-from utils import print_summary, print_post_from_id
+from utils import print_post_from_id, print_summary
 
-# def save_to_csv(results, filename="output/reddit_app_ideas.csv"):
-#     if not results:
-#         print("⚠️ No results to save.")
-#         return
-#
-#     os.makedirs(os.path.dirname(filename), exist_ok=True)
-#     df = pd.DataFrame(results)
-#     df.sort_values(by="upvotes", ascending=False, inplace=True)
-#     df.to_csv(filename, index=False)
-#     print(f"✅ Saved {len(df)} entries to {filename}")
-
-
-# if sys.platform == "linux":
-#     asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+text = "SubMiner"
+ascii_banner = pyfiglet.figlet_format(text, font="slant")
+print(ascii_banner)
+print("\nSubMiner - Mine Reddit for gold\n")
 
 
 async def main():
