@@ -41,6 +41,16 @@ async def main():
                 print(df.to_markdown(index=False))
             return
 
+        # If --get is used, show results and exit early
+        if args.get:
+            df = get_post_by_id(args.get)
+            if df.empty:
+                print("⚠️ No results found in the database.")
+            else:
+                # print(f"\n🔎 Post ID: {args.get}\n")
+                post = df.iloc[0]
+                print_post_from_id(post)
+            return
         # Otherwise, scrape and save
         print(
             f"\n🔍 Searching past {args.days} days, min upvotes: {args.min_upvotes}\n"

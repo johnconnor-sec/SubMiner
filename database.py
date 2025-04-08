@@ -70,3 +70,16 @@ def get_top_posts(n):
     df = pd.read_sql_query(query, conn)
     conn.close()
     return df
+
+
+def get_post_by_id(post_id):
+    conn = sqlite3.connect(DB_PATH)
+    query = """
+        SELECT id, title, text, url, upvotes, comments, subreddit, created, comments_text
+        FROM posts
+        WHERE id = ?
+        LIMIT 1
+    """
+    df = pd.read_sql_query(query, conn, params=(post_id,))
+    conn.close()
+    return df

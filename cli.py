@@ -30,4 +30,10 @@ def parse_args():
     parser.add_argument(
         "--analyze", action="store_true", help="Run NLP topic analysis after scraping"
     )
+    parser.add_argument(
+        "--get",
+        type=str,
+        default=None,
+        help="Retrieve a stored post by its ID",
+    )
     return parser.parse_args()
