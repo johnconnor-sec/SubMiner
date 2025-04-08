@@ -112,9 +112,15 @@ async def search_subreddit(
 
 
 # --- Step 3: Threading the API calls ---
-async def scrape_reddit(reddit, days, min_upvotes, keyword_filter=None, limit=100):
+async def scrape_reddit(
+    reddit, days, min_upvotes, subreddits=None, keywords=None, limit=100
+):
     time_threshold = time.time() - (days * 86400)  # 86400 secs in a day
-    search_keywords = [keyword_filter] if keyword_filter else KEYWORDS
+
+    active_subreddits = (
+        [s.strip() for s in subreddits.split(",")] if subreddits else SUBREDDITS
+    )
+    active_keywords = [k.strip() for k in keywords.split(",")] if keywords else KEYWORDS
 
     sem = asyncio.Semaphore(3)
 
@@ -126,8 +132,8 @@ async def scrape_reddit(reddit, days, min_upvotes, keyword_filter=None, limit=10
 
     # --- Step 3: Loop Through Subreddits and Keywords ---
     tasks = []
-    for subreddit in SUBREDDITS:
-        for keyword in search_keywords:
+    for subreddit in active_subreddits:
+        for keyword in active_keywords:
             print(f"🔍 Scanning: r/{subreddit} for '{keyword}'")
             tasks.append(limited_search(subreddit, keyword))
             await asyncio.sleep(0.2)

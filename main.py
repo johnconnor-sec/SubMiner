@@ -63,9 +63,10 @@ async def main():
         async with initialize_reddit() as reddit:
             results = await scrape_reddit(
                 reddit,
+                subreddits=args.subreddits,
+                keywords=args.keywords,
                 days=args.days,
                 min_upvotes=args.min_upvotes,
-                keyword_filter=args.keyword,
             )
 
         if results:

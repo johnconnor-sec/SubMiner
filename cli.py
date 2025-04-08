@@ -4,6 +4,16 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser(description="Scrape Reddit for app ideas.")
     parser.add_argument(
+        "--subreddits",
+        type=str,
+        help="Comma-separated list of subreddits to scrape (overrides defaults in configs.py)",
+    )
+    parser.add_argument(
+        "--keywords",
+        type=str,
+        help="Comma-separated list of keywords to search for (overrides defaults in configs.py)",
+    )
+    parser.add_argument(
         "--days",
         type=int,
         default=7,
@@ -22,19 +32,13 @@ def parse_args():
         help="Number of top posts to display (0 to skip, default: 0)",
     )
     parser.add_argument(
-        "--keyword",
-        type=str,
-        default=None,
-        help="Custom keyword to search for (overrides default keywords)",
-    )
-    parser.add_argument(
-        "--analyze", action="store_true", help="Run NLP topic analysis after scraping"
-    )
-    parser.add_argument(
         "--get",
         type=str,
         default=None,
         help="Retrieve a stored post by its ID",
+    )
+    parser.add_argument(
+        "--analyze", action="store_true", help="Run NLP topic analysis after scraping"
     )
     parser.add_argument(
         "--analyze-comments",
