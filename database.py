@@ -62,7 +62,7 @@ def save_to_sqlite(results):
 def get_top_posts(n):
     conn = sqlite3.connect(DB_PATH)
     query = f"""
-        SELECT title, url, upvotes, subreddit, created
+        SELECT id, title, url, upvotes, subreddit, created
         FROM posts
         ORDER BY upvotes DESC
         LIMIT {n}
