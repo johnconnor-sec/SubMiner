@@ -116,6 +116,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "spacy" },
     { name = "tabulate" },
+    { name = "textblob" },
 ]
 
 [package.metadata]
@@ -129,6 +130,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "spacy", specifier = ">=3.8.5" },
     { name = "tabulate", specifier = ">=0.9.0" },
+    { name = "textblob", specifier = ">=0.19.0" },
 ]
 
 [[package]]
@@ -1146,6 +1148,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz", hash = "sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c", size = 81090 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/40/44/4a5f08c96eb108af5cb50b41f76142f0afa346dfa99d5296fe7202a11854/tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f", size = 35252 },
+]
+
+[[package]]
+name = "textblob"
+version = "0.19.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "nltk" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/63/a1/31fc6a5e9e46f2d84f72f12048588feac5464486e526dbfcc4719569cd3e/textblob-0.19.0.tar.gz", hash = "sha256:0a3d06a47cf7759441da3418c4843aed3797a998beba2108c6245a2020f83b01", size = 637872 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/d6/40aa5aead775582ea0cf35870e5a3f16fab4b967f1ad2debe675f673f923/textblob-0.19.0-py3-none-any.whl", hash = "sha256:af6b8827886f1ee839a625f4865e5abb1584eae8db2259627b33a6a0b02ef19d", size = 624280 },
 ]
 
 [[package]]
