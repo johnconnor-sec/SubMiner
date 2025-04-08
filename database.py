@@ -3,7 +3,7 @@ import sqlite3
 
 import pandas as pd
 
-DB_PATH = "output/reddit_ideas.db"
+from configs import DB_PATH
 
 
 def init_db():

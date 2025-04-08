@@ -14,8 +14,8 @@ nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("averaged_perceptron_tagger")  # optional, useful later
 
-DB_PATH = "output/reddit_ideas.db"
 nlp = spacy.load("en_core_web_md")
+from configs import DB_PATH
 
 
 def load_text_data():

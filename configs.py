@@ -1,5 +1,5 @@
-import time
-from datetime import datetime, timedelta
+# --- Configuration ---
+DB_PATH = "output/reddit_ideas.db"
 
 # --- Step 2: Configuration ---
 SUBREDDITS = [
