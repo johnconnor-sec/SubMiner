@@ -19,7 +19,8 @@ def init_db():
             upvotes INTEGER,
             comments INTEGER,
             subreddit TEXT,
-            created TEXT
+            created TEXT,
+            comments_text TEXT
         )
     """)
     conn.commit()
@@ -35,8 +36,8 @@ def save_to_sqlite(results):
         try:
             cursor.execute(
                 """
-                INSERT OR IGNORE INTO posts (id, title, text, url, upvotes, comments, subreddit, created)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR IGNORE INTO posts (id, title, text, url, upvotes, comments, subreddit, created, comments_text)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
                 (
                     post["id"],
@@ -47,6 +48,7 @@ def save_to_sqlite(results):
                     post["comments"],
                     post["subreddit"],
                     post["created"],
+                    post["comments_text"],
                 ),
             )
             if cursor.rowcount > 0:
