@@ -36,4 +36,9 @@ def parse_args():
         default=None,
         help="Retrieve a stored post by its ID",
     )
+    parser.add_argument(
+        "--analyze-comments",
+        action="store_true",
+        help="Run NLP analysis on comments for the selected post ID (--get-id)",
+    )
     return parser.parse_args()
