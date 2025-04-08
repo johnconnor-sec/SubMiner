@@ -3,6 +3,7 @@ import asyncio
 # import os
 # import sys
 
+from analyze_comments import summarize_comments
 import pandas as pd
 
 from analyze_topics import run_analysis
@@ -50,7 +51,10 @@ async def main():
                 # print(f"\n🔎 Post ID: {args.get}\n")
                 post = df.iloc[0]
                 print_post_from_id(post)
+                if args.analyze_comments:
+                    print(summarize_comments(post))
             return
+
         # Otherwise, scrape and save
         print(
             f"\n🔍 Searching past {args.days} days, min upvotes: {args.min_upvotes}\n"
