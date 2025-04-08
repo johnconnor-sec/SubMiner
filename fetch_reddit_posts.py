@@ -58,6 +58,17 @@ async def search_subreddit(
             sub = await reddit.subreddit(subreddit)
             async for post in sub.search(keyword, limit=limit):
                 if post_matches(post, keyword, min_upvotes, time_threshold):
+                    await post.load()
+                    comments = []
+                    try:
+                        async for comment in post.comments:
+                            if hasattr(comment, "body"):
+                                comments.append(comment.body.strip())
+                            if len(comments) > 10:
+                                break
+                    except Exception as e:
+                        print(f"⚠️ Could not load comments for post {post.id}: {e}")
+
                     results.append(
                         {
                             "id": post.id,
@@ -70,6 +81,7 @@ async def search_subreddit(
                             "created": datetime.utcfromtimestamp(
                                 post.created_utc
                             ).strftime("%Y-%m-%d"),
+                            "comments_text": "\n\n---\n\n".join(comments),
                         }
                     )
 
