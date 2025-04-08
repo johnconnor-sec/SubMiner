@@ -2,19 +2,12 @@ import re
 import sqlite3
 from collections import Counter
 
-import nltk
 import pandas as pd
-import spacy
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from sklearn.cluster import KMeans
 
-# Only needed once
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("averaged_perceptron_tagger")  # optional, useful later
-
-nlp = spacy.load("en_core_web_md")
+from nlp_loader import nlp
 from configs import DB_PATH
 
 
