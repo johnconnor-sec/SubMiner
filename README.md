@@ -21,9 +21,9 @@
 
 SubMiner is a command-line tool that scrapes high-signal ideas and points of interest from Reddit threads and comments.
 
-It uses keyword-based search, subreddit targeting, upvote filtering, and async crawling to extract information from communities like r/Entrepreneur, r/SideProject, and r/AppIdeas.
+It uses keyword-based search, subreddit targeting, upvote filtering, and async crawling to extract information from whatever communities you are interested in.
 
-Comments are analyzed using NLP for sentiment and keyword density, helping you uncover the why behind user pain points — and turning that into validated product insight or prompt-ready startup seeds.
+Comments are analyzed using NLP for sentiment and keyword density.
 
 While the default configurations are tuned for startups, you can also use SubMiner to mine any subreddit or keyword of your choice.
 
@@ -57,6 +57,8 @@ python -m nltk.downloader punkt stopwords averaged_perceptron_tagger
 python -m textblob.download_corpora
 python -m spacy download en_core_web_md
 ```
+
+You'll need to create a Reddit app and get your credentials from the [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) page. Store the `CLIENT_ID` and `CLIENT_SECRET` in a `.env` file.
 
 ## Usage
 
